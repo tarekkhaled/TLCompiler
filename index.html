@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src *;">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Scanner</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+  </head>
+  <body>
+
+    <section class="controls">
+      <button id="open-file">Open File</button>
+          <button id="scan-file">Scan File</button>
+    </section>
+
+    <section class="content">
+      <label for="source-code" hidden>Source code</label>
+      <textarea class="raw-markdown" id="source-code"></textarea>
+     
+      <div class="rendered-html" id="tokens"></div>
+    </section>
+
+    <script>require('./renderer.js')</script>
+  </body>
+</html>
