@@ -37,11 +37,27 @@ void TinyLanguageAnalysis(string longText){
                 i++;
             }
             else if(isalpha(in[0])){
+                bool error_flag = false;
                 letterIndex = i + 1;
                 while(isalpha(longText[letterIndex])){
                     in += longText[letterIndex];
                     letterIndex++;
                 }
+                while(isdigit(longText[letterIndex]) && isalpha(longText[letterIndex+1])) {
+                    in += longText[letterIndex];
+                    letterIndex++;
+                    error_flag = true;
+                }
+                while(error_flag && isalpha(longText[letterIndex])) {
+                    in += longText[letterIndex];
+                    letterIndex++;
+                }
+                while(isdigit(longText[letterIndex])) {
+                    in += longText[letterIndex];
+                    letterIndex++;
+                    error_flag = true;
+                }
+
                 if(in == "if"){
                     tokens.push_back(make_pair(in, "IF"));
                 }
@@ -54,6 +70,10 @@ void TinyLanguageAnalysis(string longText){
                 else if(in == "case"){
                     tokens.push_back(make_pair(in, "CASE"));
                 }
+                else if(error_flag) {
+                    string error = in + " is undefined";
+                    tokens.push_back(make_pair("Error", error));
+                }
                 else{
                     tokens.push_back(make_pair(in, "Identifier"));
                 }
@@ -61,13 +81,34 @@ void TinyLanguageAnalysis(string longText){
             }
             else if(isdigit(in[0])){
                 numberIndex = i + 1;
+                bool errorFlag = false;
                 while(isdigit(longText[numberIndex])){
                     in += longText[numberIndex];
                     numberIndex++;
+                } //2z2z
+                while(isalpha(longText[numberIndex]) && isdigit(longText[numberIndex+1])) {
+                    in += longText[numberIndex];
+                    numberIndex++;
+                    errorFlag = true;
                 }
-                tokens.push_back(make_pair(in, "number"));
+                while(errorFlag && isdigit(longText[numberIndex])) {
+                    in += longText[numberIndex];
+                    numberIndex++;
+                }
+                while(isalpha(longText[numberIndex])) {
+                    in += longText[numberIndex];
+                    numberIndex++;
+                    errorFlag = true;
+                }
+                if(errorFlag){
+                    string error = in + " is undefined";
+                    tokens.push_back(make_pair("Error", error));
+                } else {
+                    tokens.push_back(make_pair(in, "number"));
+                }
                 i = numberIndex;
             }
+
             else if(in == ":" && longText[++i] == '='){
                 tokens.push_back(make_pair((in+longText[i++]) , "assign"));
                 i++;
@@ -143,7 +184,6 @@ void TinyLanguageAnalysis(string longText){
     }
     testFile.close();
 }
-
 void printString(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = args.GetIsolate();
   Local<Context> context = isolate->GetCurrentContext();

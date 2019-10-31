@@ -11,9 +11,6 @@ const openFileButton = document.querySelector('#open-file');
 const scanFileButton = document.querySelector('#scan-file');
 
 
-const tokensObject = {
-}
-
 let tokensArray = []
 
 
@@ -22,15 +19,6 @@ const render_tokens_to_screen = sourceCode => {
   scannerJob(sourceCode)
   if(c_.printString(sourceCode)) {
       tokensArray = fs.readFileSync('./example.txt').toString().split(',');
-    // console.table(outputFile)
-    // let i = 0 ;
-    // while (i < outputFile.length) {
-    //   const tokenValue = outputFile[i];
-    //   Object.defineProperty(tokensObject,tokenValue,{value :outputFile[i+1]})
-  
-    //   i = i + 2; 
-    // }
-    // console.table(tokensObject)
   }
   tokens.innerHTML = '';
   tokens.appendChild(createTokensTable(tokensArray)) ;
@@ -48,9 +36,7 @@ openFileButton.addEventListener('click',()=>{
 
 
 ipcRenderer.on('file-already-chosen' , (event,file,content)=> {
-    console.log('erer')
   filePath = file ; 
-  console.log(content)
   originalContent = content;
   sourceCode.value = content ;
   render_tokens_to_screen(content); 
@@ -84,12 +70,16 @@ const tokensInseration = (tokensArray) => {
   const tokensToShow = [];
   console.table(tokensArray)
   for (let i = 0 ; i < tokensArray.length ; i = i + 2) {
-    if(tokensArray[i] !== 'Error' && tokensArray[i-1] !== 'SEMI'   && tokensArray[i+1] ) {
-      tokensToShow.push(tokenRow(tokensArray[i+1],tokensArray[i]));
+     if (tokensArray[i] === 'Error' && tokensArray[i+1] && !(String(tokensArray[i+1]).trim() == 'is undefined')) {
+      tokensToShow.push(tokenRow(tokensArray[i],tokensArray[i+1]));
+      break;
+    } 
+    else if (tokensArray[i] !== 'Error' && tokensArray[i+1] && tokensArray[i-1] !== 'SEMI') {
+      tokensToShow.push(tokenRow(tokensArray[i],tokensArray[i+1]));
     }
-
+  
   }
-  console.dirxml(tokensToShow)
+  console.table(tokensToShow)
   return tokensToShow;
 }
 
