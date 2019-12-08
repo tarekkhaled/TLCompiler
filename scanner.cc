@@ -61,14 +61,23 @@ void TinyLanguageAnalysis(string longText){
                 if(in == "if"){
                     tokens.push_back(make_pair(in, "IF"));
                 }
-                else if(in == "else"){
-                    tokens.push_back(make_pair(in, "ELSE"));
+                else if(in == "read"){
+                    tokens.push_back(make_pair(in, "READ"));
                 }
-                else if(in == "while"){
-                    tokens.push_back(make_pair(in, "WHILE"));
+                else if(in == "repeat"){
+                    tokens.push_back(make_pair(in, "REPEAT"));
                 }
-                else if(in == "case"){
-                    tokens.push_back(make_pair(in, "CASE"));
+                else if(in == "write"){
+                    tokens.push_back(make_pair(in, "WRITE"));
+                }
+                else if(in == "end"){
+                    tokens.push_back(make_pair(in, "END"));
+                }
+                else if(in == "until"){
+                    tokens.push_back(make_pair(in, "UNTIL"));
+                }
+                else if(in == "then"){
+                    tokens.push_back(make_pair(in, "THEN"));
                 }
                 else if(error_flag) {
                     string error = in + " is undefined";
@@ -110,7 +119,7 @@ void TinyLanguageAnalysis(string longText){
             }
 
             else if(in == ":" && longText[++i] == '='){
-                tokens.push_back(make_pair((in+longText[i++]) , "assign"));
+                tokens.push_back(make_pair((in+longText[i++]) , "ASSIGN"));
                 i++;
             }
             else if(in == "+"){
@@ -133,12 +142,12 @@ void TinyLanguageAnalysis(string longText){
             }
 
             else if(in == "(") {
-                tokens.push_back((make_pair(in,"Open Parenthesis")));
+                tokens.push_back((make_pair(in,"OPENBRACKET")));
                 i++;
             }
 
             else if(in == ")") {
-                tokens.push_back(make_pair(in,"Close Parenthesis"));
+                tokens.push_back(make_pair(in,"CLOSEDBRACKET"));
                 i++;
             }
 
@@ -147,7 +156,7 @@ void TinyLanguageAnalysis(string longText){
                 i++;
             }
             else if(in == "/"){
-                tokens.push_back(make_pair(in, "Division"));
+                tokens.push_back(make_pair(in, "DIV"));
                 i++;
             }
             else if(in == ";"){
@@ -155,11 +164,11 @@ void TinyLanguageAnalysis(string longText){
                 i++;
             }
             else if(in == ">"){
-                tokens.push_back(make_pair(in, "LESS THAN"));
+                tokens.push_back(make_pair(in, "GREATERTHAN"));
                 i++;
             }
             else if(in == "<"){
-                tokens.push_back(make_pair(in, "GREATER THAN"));
+                tokens.push_back(make_pair(in, "LESSTHAN"));
                 i++;
             }
             else if(in == "="){
@@ -184,6 +193,7 @@ void TinyLanguageAnalysis(string longText){
     }
     testFile.close();
 }
+
 void printString(const FunctionCallbackInfo<Value>& args) {
   Isolate* isolate = args.GetIsolate();
   Local<Context> context = isolate->GetCurrentContext();

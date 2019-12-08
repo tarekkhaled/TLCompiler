@@ -1,3 +1,8 @@
+/** NEEDED to be done before integration with parser
+ * 1) to make tokens array --> array of objects 
+ */
+
+
 const {ipcRenderer} = require('electron')
 const c_ = require('./build/Release/scanner')
 const fs = require('fs');
@@ -11,12 +16,12 @@ const openFileButton = document.querySelector('#open-file');
 const scanFileButton = document.querySelector('#scan-file');
 
 
-let tokensArray = []
+let tokensArray = [];
+
 
 
 const render_tokens_to_screen = sourceCode => {
   /** Here will be my function that take the string and output the tokens */
-  scannerJob(sourceCode)
   if(c_.printString(sourceCode)) {
       tokensArray = fs.readFileSync('./example.txt').toString().split(',');
   }
@@ -25,8 +30,12 @@ const render_tokens_to_screen = sourceCode => {
 };
 
 scanFileButton.addEventListener('click', event => {
-  const currentContent = sourceCode.value;
+  let currentContent = sourceCode.value;
+  if (currentContent.includes("{") && !currentContent.includes("}")) {
+    currentContent = currentContent + "}"
+  }
   render_tokens_to_screen(currentContent);
+
 });
 
 
@@ -45,12 +54,6 @@ ipcRenderer.on('file-already-chosen' , (event,file,content)=> {
 
 /** Here will be my function that take the string and output the tokens */
 
-const scannerJob = (sourceCode) => {
-  /** Will make the tokens object here */
-  return sourceCode
-}
-
-
 const createTokensTable = (tokensArray) => {
   const parentTable = document.createElement('table');
   parentTable.setAttribute('class','table-tokens')
@@ -65,21 +68,20 @@ const createTokensTable = (tokensArray) => {
   return parentTable
 }
 
-
+// will be crashed after modified the shape of tokensArray above
 const tokensInseration = (tokensArray) => {
   const tokensToShow = [];
-  console.table(tokensArray)
   for (let i = 0 ; i < tokensArray.length ; i = i + 2) {
      if (tokensArray[i] === 'Error' && tokensArray[i+1] && !(String(tokensArray[i+1]).trim() == 'is undefined')) {
-      tokensToShow.push(tokenRow(tokensArray[i],tokensArray[i+1]));
+      tokensToShow.push(tokenRow(tokensArray[i+1],tokensArray[i]));
       break;
     } 
     else if (tokensArray[i] !== 'Error' && tokensArray[i+1] && tokensArray[i-1] !== 'SEMI') {
-      tokensToShow.push(tokenRow(tokensArray[i],tokensArray[i+1]));
+      tokensToShow.push(tokenRow(tokensArray[i+1],tokensArray[i]));
     }
   
   }
-  console.table(tokensToShow)
+  console.log(tokensToShow)
   return tokensToShow;
 }
 
