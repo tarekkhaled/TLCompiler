@@ -1,3 +1,0 @@
-read x;
-read x;
-write xyz;

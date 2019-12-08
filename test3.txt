@@ -1,5 +1,0 @@
-if abc < xyz then
-min = abc ;
-else 
-min = xyz ;
-end
