@@ -5,13 +5,30 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; connect-src *;">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Scanner</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="./style/style.css" type="text/css">
+    <link rel="stylesheet" href="./style/checkboxs.css" type="text/css">
   </head>
   <body>
 
     <section class="controls">
-      <button id="open-file">Open File</button>
-          <button id="scan-file">Scan File</button>
+      <div class="buttons">
+          <button id="open-file">Open File</button>
+          <button id="scan-file" class="scanner-file file">Scan File</button>
+          <button id="parse-file" disabled class="parser-file file">Parse File</button>
+          <button id="scan-file" disabled class="full-file file">Scan-parse File</button>
+      </div>
+      <div class="app-mode">
+          <p>Scanner Mode</p>
+          <div class="checkbox checkbox-scanner"><div class="inner inner-scanner active"><div class="toggle scanner"></div></div></div>
+      </div>
+      <div class="app-mode">
+          <p>Parser Mode</p>
+          <div class="checkbox checkbox-parser"><div class="inner inner-parser"><div class="toggle parser"></div></div></div>
+      </div>
+      <div class="app-mode">
+          <p>Full Mode</p>
+          <div class="checkbox checkbox-full"><div class="inner inner-full"><div class="toggle full"></div></div></div>
+      </div>
     </section>
 
     <section class="content">
@@ -21,6 +38,6 @@
       <div class="rendered-html" id="tokens"></div>
     </section>
 
-    <script>require('./renderer.js')</script>
+    <script>require('./js/renderer.js')</script>
   </body>
 </html>
