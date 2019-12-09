@@ -3,7 +3,7 @@
 #### 1) RUN ``` npm install```
 #### 2) RUN ``` npm start ```
 
-# INSTALLING THE PROEJCT AFTER CLONE IT (Assume changes happen in C++ file scanner.css)
+### INSTALLING THE PROEJCT AFTER CLONE IT (Assume changes happen in C++ file scanner.css)
 
 #### 1) RUN ``` npm i -D electron-rebuild ```
 #### 2) REMOVE ``` node_modules,pacakges-lock.json ``` folders
