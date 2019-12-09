@@ -10,11 +10,11 @@ app.on('ready' , () => {
         show : false
         ,webPreferences : {
             nodeIntegration : true
-        }
+        },
     })
     
     /* load html in the browser window */
-    mainWindow.loadFile(`${__dirname}/index.html`);
+    mainWindow.loadFile(`./index.html`);
 
 
     /*  just one time do this listener*/
@@ -22,12 +22,10 @@ app.on('ready' , () => {
         mainWindow.show() // make {show :true}
     }) ; 
 
-
 })
 
+ipcMain.on('get-file-from-user',getFileFromUser)
 
-ipcMain.on('get-file-from-user',getFileFromUser
-)
 function getFileFromUser () {
     const files =  dialog.showOpenDialogSync({
         properties : ['openFile'], // allow the file to be selected by user
