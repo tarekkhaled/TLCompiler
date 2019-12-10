@@ -64,7 +64,7 @@
 
 
 .checkbox .inner.active  {
-    background: linear-gradient(0deg,#00d22d,#999999);
+    background: linear-gradient(0deg,#00ff37,#999999);
 }
 
 .app-mode {
@@ -75,6 +75,6 @@
 
 .app-mode p {
     font-weight: bold;
-    padding-right: 10px;
+    padding-right: 8px;
     color: #797070;
 }
