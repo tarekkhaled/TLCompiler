@@ -1,7 +1,10 @@
 function toggle_checkbox (e) {
     const which_checkbox = e.target.classList[1];
     const checkboxCircleParent = document.querySelector(`.inner-${which_checkbox}`);
-    document.querySelectorAll('.inner').forEach(checkbox => checkbox.classList.remove('active'))
+    document.querySelectorAll('.inner').forEach(checkbox => {
+        checkbox.classList.remove('active')
+        document.querySelector('#tokens').innerHTML = '';
+})
     checkboxCircleParent.classList.toggle('active');
     document.querySelectorAll('.file').forEach(button => {
         if (!button.classList.contains(`${which_checkbox}-file`)) {
