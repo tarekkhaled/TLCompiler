@@ -1,7 +1,13 @@
+const scanner_job = require('./scanner');
+const parser_job = require('./parser');
+
+let _ = {
+    counter : 0
+}
+
 const full_job = sourceCode => {
-    const place_to_render_on = document.querySelector('.rendered-html');
-    place_to_render_on.innerHTML = ``;
-    console.log(sourceCode)
+    const tokensArray = scanner_job(sourceCode);
+    parser_job(sourceCode,tokensArray);
 }
 
 

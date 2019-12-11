@@ -87,7 +87,7 @@ void TinyLanguageAnalysis(string longText){
                     tokens.push_back(make_pair("Error", error));
                 }
                 else{
-                    tokens.push_back(make_pair(in, "Identifier"));
+                    tokens.push_back(make_pair(in, "IDENTIFIER"));
                 }
                 i = letterIndex;
             }
@@ -116,7 +116,7 @@ void TinyLanguageAnalysis(string longText){
                     string error = in + " is undefined";
                     tokens.push_back(make_pair("Error", error));
                 } else {
-                    tokens.push_back(make_pair(in, "number"));
+                    tokens.push_back(make_pair(in, "NUMBER"));
                 }
                 i = numberIndex;
             }

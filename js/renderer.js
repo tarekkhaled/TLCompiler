@@ -4,7 +4,7 @@
 const {ipcRenderer} = require('electron');
 const scanner_job = require('./scanner');
 const parser_job = require('./parser');
-const {full_job} = require('./full');
+const full_job = require('./full');
 const toggle_checkbox = require('./checkboxs');
 
 
@@ -18,10 +18,6 @@ const checkboxCircle = document.querySelectorAll('.toggle');
 
 
 checkboxCircle.forEach(circle => circle.addEventListener('click',toggle_checkbox));
-
-
-
-
 
 
 /**______________________Navbar Features____________________ */
@@ -50,8 +46,6 @@ fullFileButton.addEventListener('click',e => {
 openFileButton.addEventListener('click',()=>{
     ipcRenderer.send('get-file-from-user')
 })
-
-
 
 
 /** when fire will be selected this function will be executed  */

@@ -4,16 +4,44 @@ const fs = require('fs');
 
 
 const scanner_job = sourceCode => {
+  if (sourceCode.includes("{") && !sourceCode.includes("}")) {
+    sourceCode = sourceCode + "}"
+  }
+  const regex = /^.+ ?is undefined$/;
   const place_to_render_on = document.querySelector('.rendered-html');
   place_to_render_on.innerHTML = ``;
   const tokens = document.querySelector('#tokens');
   let tokensArray = [];
   /** Here will be my function that take the string and output the tokens */
   if(c_.printString(sourceCode)) {
-      tokensArray = fs.readFileSync('./example.txt').toString().split(',');
+      const textFromFile = fs.readFileSync('./example.txt').toString().split(',');
+      let counter = 0 ; 
+      console.log(textFromFile);
+      while(counter < textFromFile.length) {
+        if(textFromFile[counter+1] && !textFromFile[counter+1].includes('\n'))
+        {
+          if(textFromFile[counter] === 'Error' && regex.test(textFromFile[counter+1])) {
+            tokensArray.push({
+              tokenValue : textFromFile[counter],
+              tokenType : textFromFile[counter+1]
+            })
+          } 
+          if(textFromFile[counter] !== 'Error') {
+            tokensArray.push({
+              tokenValue : textFromFile[counter],
+              tokenType : textFromFile[counter+1]
+            })
+          }
+        }
+        counter += 2;
+      }
+      console.table(tokensArray);
   }
+  
+
   tokens.innerHTML = '';
   tokens.appendChild(scanner_output(tokensArray)) ;
+  return tokensArray ;
 };
 
 
@@ -36,13 +64,7 @@ const scanner_output = (tokensArray) => {
 const tokensInseration = (tokensArray) => {
     const tokensToShow = [];
     for (let i = 0 ; i < tokensArray.length ; i = i + 2) {
-       if (tokensArray[i] === 'Error' && tokensArray[i+1] && !(String(tokensArray[i+1]).trim() == 'is undefined')) {
-        tokensToShow.push(tokenRow(tokensArray[i+1],tokensArray[i]));
-        break;
-      } 
-      else if (tokensArray[i] !== 'Error' && tokensArray[i+1] && tokensArray[i-1] !== 'SEMI') {
-        tokensToShow.push(tokenRow(tokensArray[i+1],tokensArray[i]));
-      }
+        tokensToShow.push(tokenRow(tokensArray[i].tokenType,tokensArray[i].tokenValue));
     }
     return tokensToShow;
 }

@@ -17,7 +17,7 @@ const prepare_tokensArray_for_parsing_it = sourceCode => {
             counter++;
             tokensArray.push({
                 tokenValue : line.split(',')[0],
-                tokenType : line.split(',')[1] === 'SEMICOLON' ? 'SEMI' : line.split(',')[1]
+                tokenType : line.split(',')[1].trim() === 'SEMICOLON' ? 'SEMI' : line.split(',')[1].trim()
             })
         }
         if(i === sourceCode.length - 1) {
@@ -29,18 +29,24 @@ const prepare_tokensArray_for_parsing_it = sourceCode => {
             counter++;
             tokensArray.push({
                 tokenValue : line.split(',')[0],
-                tokenType : line.split(',')[1] === 'SEMICOLON' ? 'SEMI' : line.split(',')[1]
+                tokenType : line.split(',')[1].trim() === 'SEMICOLON' ? 'SEMI' : line.split(',')[1].trim()
             })
         }
     }
     return tokensArray;
 }
 
-const parser_job = (sourceCode) => {
+const parser_job = (sourceCode,tokesnOb = '',) => {
+    _.counter = 0;
     const place_to_render_on = document.querySelector('.rendered-html');
     place_to_render_on.innerHTML = ``;
-    const tokensArray = prepare_tokensArray_for_parsing_it(sourceCode);
-    console.log(tokensArray)
+    let  tokensArray;
+    if(!tokesnOb) {
+        tokensArray = prepare_tokensArray_for_parsing_it(sourceCode);
+        console.log(tokensArray)
+    }
+    else 
+        tokensArray = tokesnOb;
     const acceptance = tiny_language_acceptance(tokensArray,_);
     _.counter = 0 ;
     place_to_render_on.innerHTML = `<div class="card">
