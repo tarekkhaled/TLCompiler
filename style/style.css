@@ -142,3 +142,21 @@ input[type="checkbox"]{
 img {
   width: 30px;
 }
+
+.card {
+  text-align: center;
+}
+
+img {
+  width: 80px;
+}
+
+.card-info {
+  border: 1px solid #949494;
+  padding: 8px;
+}
+
+.card-info p {
+  font-size: 20px;
+  color: #464646;
+}

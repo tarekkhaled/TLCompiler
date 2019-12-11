@@ -1,20 +1,8 @@
-const read_rule_tiny_language = require('../tiny_languages_rules/read');
-const write_rule_tiny_language = require('../tiny_languages_rules/write');
-const assign_rule_tiny_language = require('../tiny_languages_rules/assign');
-const until_rule_tiny_language = require('../tiny_languages_rules/until');
-const repeat_rule_tiny_language = require('../tiny_languages_rules/repeat');
-const if_rule_tiny_language = require('../tiny_languages_rules/if');
-const end_rule_tiny_language = require('../tiny_languages_rules/end');
-const  {
-    READ,
-    WRITE,
-    ASSIGN,
-    UNTIL,
-    REPEAT,
-    IF,
-    END
-} = require("./keywords");
+const tiny_language_acceptance = require('../tiny_languages_grammer/program');
 
+const _ = {
+    counter : 0
+}
 
 const prepare_tokensArray_for_parsing_it = sourceCode => {
     let tokensArray = [];
@@ -48,51 +36,21 @@ const prepare_tokensArray_for_parsing_it = sourceCode => {
     return tokensArray;
 }
 
-const tiny_language_acceptance = arrayOfTokens => {
-    let acceptance = [] ;
-    for(let i = 0 ; i < arrayOfTokens.length ; i++) {
-        switch (arrayOfTokens[i].tokenType) {
-            case READ:
-                acceptance.push(read_rule_tiny_language(arrayOfTokens,i));
-            break;
-            case WRITE:
-                acceptance.push(write_rule_tiny_language(arrayOfTokens,i));
-            break;
-            case IF:
-                acceptance.push(if_rule_tiny_language(arrayOfTokens,i));
-            break;
-            case END:
-                acceptance.push(end_rule_tiny_language(arrayOfTokens,i))
-            break;
-            case ASSIGN:
-                acceptance.push(assign_rule_tiny_language(arrayOfTokens,i));
-            break;
-            case UNTIL:
-                acceptance.push(until_rule_tiny_language(arrayOfTokens,i));
-            break;
-            case REPEAT:
-                acceptance.push(repeat_rule_tiny_language(arrayOfTokens,i));
-            break;
-            default:
-            break;
-        }
-    }
-    return acceptance ;
-}
-
 const parser_job = (sourceCode) => {
     const place_to_render_on = document.querySelector('.rendered-html');
     place_to_render_on.innerHTML = ``;
     const tokensArray = prepare_tokensArray_for_parsing_it(sourceCode);
-    const acceptance = tiny_language_acceptance(tokensArray);
-    let accepted = true;
-    acceptance.forEach(obj => {
-        accepted = accepted && obj.acceptance
-    });
-    // show the result of parser into screen
+    console.log(tokensArray)
+    const acceptance = tiny_language_acceptance(tokensArray,_);
+    _.counter = 0 ;
+    place_to_render_on.innerHTML = `<div class="card">
+        <h3>Tiny Language Statue :</h3>
+        <div class="card-info">
+            <img src=${acceptance ? './img/true.png' : './img/false.png'} />
+            <p>${acceptance ? 'This code is accepted' : 'This code is not accepted'}</p>
+        </div>
+    </div>`
 }
-
-
 
 module.exports = parser_job;
 

@@ -73,6 +73,9 @@ void TinyLanguageAnalysis(string longText){
                 else if(in == "end"){
                     tokens.push_back(make_pair(in, "END"));
                 }
+                else if(in == "else"){
+                    tokens.push_back(make_pair(in, "ELSE"));
+                }
                 else if(in == "until"){
                     tokens.push_back(make_pair(in, "UNTIL"));
                 }

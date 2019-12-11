@@ -73,10 +73,10 @@
     "v8_use_siphash": 1,
     "v8_use_snapshot": 1,
     "want_separate_host_toolset": 0,
-    "nodedir": "C:\\Users\\tarek\\.electron-gyp\\7.1.3",
+    "nodedir": "C:\\Users\\tarek\\.electron-gyp\\7.1.4",
     "standalone_static_library": 1,
     "msbuild_path": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\BuildTools\\MSBuild\\15.0\\Bin\\MSBuild.exe",
-    "target": "7.1.3",
+    "target": "7.1.4",
     "build_from_source": "true",
     "disturl": "https://electronjs.org/headers",
     "runtime": "electron"
