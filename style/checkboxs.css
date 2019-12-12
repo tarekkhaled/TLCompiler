@@ -71,6 +71,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Varela Round', sans-serif;
 }
 
 .app-mode p {

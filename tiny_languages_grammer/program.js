@@ -3,7 +3,7 @@ const {
     ELSE,EQUAL,SEMI,ASSIGN,OPENBRACKET,CLOSEBRACKET,
     NUMBER,IDENTIFIER,UNTIL,MULT,DIV,LESSTHAN
 
-} = require('../keywords');
+} = require('./keywords');
 
 const matchAndIncrementCounter = (tokenWeWantToMatchWith,comingToken,_) => {
     if(comingToken === tokenWeWantToMatchWith) {

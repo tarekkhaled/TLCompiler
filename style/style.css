@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu|Varela+Round&display=swap");
+
 html {
   box-sizing: border-box;
 }
@@ -40,12 +42,13 @@ textarea {
 }
 
 button {
-  font-size: 16 px;
+  font-size: 14px;
   background-color: rgb(181, 220, 216);
   border: none;
   padding: 0.5em 1em;
   color: #353535;
   cursor: pointer;
+  font-family: 'Varela Round', sans-serif;
 }
 
 button:disabled {
@@ -84,12 +87,14 @@ button:disabled {
   padding: 1em;
   overflow: scroll;
   font-size: 16px;
+  font-family: 'Varela Round', sans-serif;
 }
 
 .raw-markdown {
   border: 5px solid rgb(238, 252, 250);;
   background-color: rgb(238, 252, 250);
   font-family: monospace;
+  font-family: 'Varela Round', sans-serif;
 }
 
 .raw-markdown.drag-over {
