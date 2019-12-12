@@ -18,7 +18,7 @@ const matchAndIncrementCounter = (tokenWeWantToMatchWith,comingToken,_) => {
 const factor = (tokens,_) => {
     if(tokens[_.counter].tokenType === OPENBRACKET ) {
         const result1 = matchAndIncrementCounter(OPENBRACKET,tokens[_.counter].tokenType,_); 
-        const result2 = exp(tokens[_.counter].tokenType);
+        const result2 = exp(tokens,_);
         const result3 = matchAndIncrementCounter(CLOSEBRACKET,tokens[_.counter].tokenType,_)
         return result1 && result2 && result3;
     } 
@@ -192,8 +192,8 @@ const stmt_seq = (tokens,_) => {
        const result3 = statment(tokens,_);
        return result1 && result2 && result3;
     }
-    return result1;
-}
+        return result1;
+    }
 
 const program = (tokens,_) => {
     return stmt_seq(tokens,_);
