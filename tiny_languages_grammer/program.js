@@ -16,16 +16,16 @@ const matchAndIncrementCounter = (tokenWeWantToMatchWith,comingToken,_) => {
 }
 
 const factor = (tokens,_) => {
-    if(tokens[_.counter].tokenType === OPENBRACKET ) {
+    if(tokens[_.counter] && tokens[_.counter].tokenType === OPENBRACKET ) {
         const result1 = matchAndIncrementCounter(OPENBRACKET,tokens[_.counter].tokenType,_); 
         const result2 = exp(tokens,_);
         const result3 = matchAndIncrementCounter(CLOSEBRACKET,tokens[_.counter].tokenType,_)
         return result1 && result2 && result3;
     } 
-    else if (tokens[_.counter].tokenType === NUMBER) {
+    else if (tokens[_.counter] && tokens[_.counter].tokenType === NUMBER) {
         return matchAndIncrementCounter(NUMBER,tokens[_.counter].tokenType,_);
     }
-    else if (tokens[_.counter].tokenType === IDENTIFIER) {
+    else if (tokens[_.counter] && tokens[_.counter].tokenType === IDENTIFIER) {
         return matchAndIncrementCounter(IDENTIFIER,tokens[_.counter].tokenType,_);
     }
     else {
@@ -34,9 +34,9 @@ const factor = (tokens,_) => {
 }
 
 const mulop = (tokens,_) => {
-    if(tokens[_.counter].tokenType === MULT)
+    if(tokens[_.counter] && tokens[_.counter].tokenType === MULT)
         return matchAndIncrementCounter(MULT,tokens[_.counter].tokenType,_);
-    else if(tokens[_.counter].tokenType === DIV)
+    else if(tokens[_.counter] && tokens[_.counter].tokenType === DIV)
         return matchAndIncrementCounter(DIV,tokens[_.counter].tokenType,_);
     else 
         return false;
@@ -53,9 +53,9 @@ const term = (tokens,_) => {
 }
 
 const addop = (tokens,_) => {
-    if(tokens[_.counter].tokenType === PLUS) 
+    if(tokens[_.counter] && tokens[_.counter].tokenType === PLUS) 
         return matchAndIncrementCounter(PLUS,tokens[_.counter].tokenType,_);
-    else if(tokens[_.counter].tokenType === MINUS)
+    else if(tokens[_.counter] && tokens[_.counter].tokenType === MINUS)
         return matchAndIncrementCounter(MINUS,tokens[_.counter].tokenType,_);
     else
         return false;
@@ -73,9 +73,9 @@ const simple_exp = (tokens,_) => {
 }
 
 const comparsion = (tokens,_) => {
-    if(tokens[_.counter].tokenType === LESSTHAN)
+    if(tokens[_.counter] && tokens[_.counter].tokenType === LESSTHAN)
         return matchAndIncrementCounter(LESSTHAN,tokens[_.counter].tokenType,_);
-    else if(tokens[_.counter].tokenType === EQUAL)
+    else if(tokens[_.counter] && tokens[_.counter].tokenType === EQUAL)
         return matchAndIncrementCounter(EQUAL,tokens[_.counter].tokenType,_);
     else 
         return false;
@@ -92,7 +92,7 @@ const exp = (tokens,_) => {
 }
 
 const write = (tokens,_) => {
-    if(tokens[_.counter].tokenType === WRITE) {
+    if(tokens[_.counter] && tokens[_.counter].tokenType === WRITE) {
         const result1 = matchAndIncrementCounter(WRITE,tokens[_.counter].tokenType,_);
         const result2 = exp(tokens,_);
         return result1 && result2
@@ -102,9 +102,9 @@ const write = (tokens,_) => {
 }
 
 const read = (tokens,_) => {
-    if(tokens[_.counter].tokenType === READ) {
+    if(tokens[_.counter] && tokens[_.counter].tokenType === READ) {
         const result1 = matchAndIncrementCounter(READ,tokens[_.counter].tokenType,_);
-        if(tokens[_.counter].tokenType === IDENTIFIER) {
+        if(tokens[_.counter] && tokens[_.counter].tokenType === IDENTIFIER) {
             const result2 = matchAndIncrementCounter(IDENTIFIER,tokens[_.counter].tokenType,_);
             return result1 && result2;
         } else {
@@ -116,9 +116,9 @@ const read = (tokens,_) => {
 }
 
 const assign = (tokens,_) => {
-    if(tokens[_.counter].tokenType === IDENTIFIER) {
+    if(tokens[_.counter] && tokens[_.counter].tokenType === IDENTIFIER) {
         const result1 = matchAndIncrementCounter(IDENTIFIER,tokens[_.counter].tokenType,_);
-        if(tokens[_.counter].tokenType === ASSIGN) {
+        if(tokens[_.counter] && tokens[_.counter].tokenType === ASSIGN) {
             const result2 = matchAndIncrementCounter(ASSIGN,tokens[_.counter].tokenType,_);
             const result3 = exp(tokens,_);
             return result1 && result2 && result3;
@@ -131,7 +131,7 @@ const assign = (tokens,_) => {
 }
 
 const repeat = (tokens,_) => {
-    if(tokens[_.counter].tokenType === REPEAT) {
+    if(tokens[_.counter] && tokens[_.counter].tokenType === REPEAT) {
         const result1 = matchAndIncrementCounter(REPEAT,tokens[_.counter].tokenType,_);
         const result2 = stmt_seq(tokens,_);
         const result3 = matchAndIncrementCounter(UNTIL,tokens[_.counter].tokenType,_);
@@ -143,18 +143,18 @@ const repeat = (tokens,_) => {
 }
 
 const if_stmt = (tokens,_) => {
-    if(tokens[_.counter].tokenType === IF) {
+    if(tokens[_.counter] && tokens[_.counter].tokenType === IF) {
         const result1 = matchAndIncrementCounter(IF,tokens[_.counter].tokenType,_);
         const result2 = exp(tokens,_);
         const result3 = matchAndIncrementCounter(THEN,tokens[_.counter].tokenType,_);
         const result4 = stmt_seq(tokens,_);
-        if(tokens[_.counter].tokenType === ELSE){
+        if(tokens[_.counter] && tokens[_.counter].tokenType === ELSE){
             const result5 = matchAndIncrementCounter(ELSE,tokens[_.counter].tokenType,_);
             const result6 = stmt_seq(tokens,_);
             const result7 = matchAndIncrementCounter(END,tokens[_.counter].tokenType,_);
             return result1 && result2 && result3 && result4 && result5 && result5 && result6 && result7
         }
-        if(tokens[_.counter].tokenType === SEMI) {
+        if(tokens[_.counter] && tokens[_.counter].tokenType === SEMI) {
             const result5 = matchAndIncrementCounter(SEMI,tokens[_.counter].tokenType,_);
             const result6 = stmt_seq(tokens,_);
         }
