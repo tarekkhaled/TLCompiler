@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{94D8C91E-5F43-F49A-F7A6-5459A4665006}</ProjectGuid>
+    <ProjectGuid>{707D36B1-7BB6-0A6C-B88E-9B2F7B8FB7AE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>scanner</RootNamespace>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
@@ -48,7 +48,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\tarek\.electron-gyp\7.1.4\include\node;C:\Users\tarek\.electron-gyp\7.1.4\src;C:\Users\tarek\.electron-gyp\7.1.4\deps\openssl\config;C:\Users\tarek\.electron-gyp\7.1.4\deps\openssl\openssl\include;C:\Users\tarek\.electron-gyp\7.1.4\deps\uv\include;C:\Users\tarek\.electron-gyp\7.1.4\deps\zlib;C:\Users\tarek\.electron-gyp\7.1.4\deps\v8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\tarek\.electron-gyp\7.1.5\include\node;C:\Users\tarek\.electron-gyp\7.1.5\src;C:\Users\tarek\.electron-gyp\7.1.5\deps\openssl\config;C:\Users\tarek\.electron-gyp\7.1.5\deps\openssl\openssl\include;C:\Users\tarek\.electron-gyp\7.1.5\deps\uv\include;C:\Users\tarek\.electron-gyp\7.1.5\deps\zlib;C:\Users\tarek\.electron-gyp\7.1.5\deps\v8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <BufferSecurityCheck>true</BufferSecurityCheck>
       <CompileAsWinRT>false</CompileAsWinRT>
@@ -68,7 +68,7 @@
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;DelayImp.lib;&quot;C:\\Users\\tarek\\.electron-gyp\\7.1.4\\x64\\node.lib&quot;</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;DelayImp.lib;&quot;C:\\Users\\tarek\\.electron-gyp\\7.1.5\\x64\\node.lib&quot;</AdditionalDependencies>
       <AdditionalOptions>/ignore:4199 %(AdditionalOptions)</AdditionalOptions>
       <DelayLoadDLLs>node.exe;%(DelayLoadDLLs)</DelayLoadDLLs>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -78,13 +78,13 @@
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
     <ResourceCompile>
-      <AdditionalIncludeDirectories>C:\Users\tarek\.electron-gyp\7.1.4\include\node;C:\Users\tarek\.electron-gyp\7.1.4\src;C:\Users\tarek\.electron-gyp\7.1.4\deps\openssl\config;C:\Users\tarek\.electron-gyp\7.1.4\deps\openssl\openssl\include;C:\Users\tarek\.electron-gyp\7.1.4\deps\uv\include;C:\Users\tarek\.electron-gyp\7.1.4\deps\zlib;C:\Users\tarek\.electron-gyp\7.1.4\deps\v8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\tarek\.electron-gyp\7.1.5\include\node;C:\Users\tarek\.electron-gyp\7.1.5\src;C:\Users\tarek\.electron-gyp\7.1.5\deps\openssl\config;C:\Users\tarek\.electron-gyp\7.1.5\deps\openssl\openssl\include;C:\Users\tarek\.electron-gyp\7.1.5\deps\uv\include;C:\Users\tarek\.electron-gyp\7.1.5\deps\zlib;C:\Users\tarek\.electron-gyp\7.1.5\deps\v8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NODE_GYP_MODULE_NAME=scanner;USING_UV_SHARED=1;USING_V8_SHARED=1;V8_DEPRECATION_WARNINGS=1;V8_DEPRECATION_WARNINGS;V8_IMMINENT_DEPRECATION_WARNINGS;WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_HAS_EXCEPTIONS=0;OPENSSL_NO_PINSHARED;OPENSSL_THREADS;BUILDING_NODE_EXTENSION;HOST_BINARY=&quot;node.exe&quot;;DEBUG;_DEBUG;V8_ENABLE_CHECKS;%(PreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\tarek\.electron-gyp\7.1.4\include\node;C:\Users\tarek\.electron-gyp\7.1.4\src;C:\Users\tarek\.electron-gyp\7.1.4\deps\openssl\config;C:\Users\tarek\.electron-gyp\7.1.4\deps\openssl\openssl\include;C:\Users\tarek\.electron-gyp\7.1.4\deps\uv\include;C:\Users\tarek\.electron-gyp\7.1.4\deps\zlib;C:\Users\tarek\.electron-gyp\7.1.4\deps\v8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\tarek\.electron-gyp\7.1.5\include\node;C:\Users\tarek\.electron-gyp\7.1.5\src;C:\Users\tarek\.electron-gyp\7.1.5\deps\openssl\config;C:\Users\tarek\.electron-gyp\7.1.5\deps\openssl\openssl\include;C:\Users\tarek\.electron-gyp\7.1.5\deps\uv\include;C:\Users\tarek\.electron-gyp\7.1.5\deps\zlib;C:\Users\tarek\.electron-gyp\7.1.5\deps\v8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <BufferSecurityCheck>true</BufferSecurityCheck>
       <CompileAsWinRT>false</CompileAsWinRT>
       <DebugInformationFormat>OldStyle</DebugInformationFormat>
@@ -111,7 +111,7 @@
       <AdditionalOptions>/LTCG:INCREMENTAL %(AdditionalOptions)</AdditionalOptions>
     </Lib>
     <Link>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;DelayImp.lib;&quot;C:\\Users\\tarek\\.electron-gyp\\7.1.4\\x64\\node.lib&quot;</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;DelayImp.lib;&quot;C:\\Users\\tarek\\.electron-gyp\\7.1.5\\x64\\node.lib&quot;</AdditionalDependencies>
       <AdditionalOptions>/ignore:4199 /LTCG:INCREMENTAL %(AdditionalOptions)</AdditionalOptions>
       <DelayLoadDLLs>node.exe;%(DelayLoadDLLs)</DelayLoadDLLs>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -123,7 +123,7 @@
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
     <ResourceCompile>
-      <AdditionalIncludeDirectories>C:\Users\tarek\.electron-gyp\7.1.4\include\node;C:\Users\tarek\.electron-gyp\7.1.4\src;C:\Users\tarek\.electron-gyp\7.1.4\deps\openssl\config;C:\Users\tarek\.electron-gyp\7.1.4\deps\openssl\openssl\include;C:\Users\tarek\.electron-gyp\7.1.4\deps\uv\include;C:\Users\tarek\.electron-gyp\7.1.4\deps\zlib;C:\Users\tarek\.electron-gyp\7.1.4\deps\v8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\tarek\.electron-gyp\7.1.5\include\node;C:\Users\tarek\.electron-gyp\7.1.5\src;C:\Users\tarek\.electron-gyp\7.1.5\deps\openssl\config;C:\Users\tarek\.electron-gyp\7.1.5\deps\openssl\openssl\include;C:\Users\tarek\.electron-gyp\7.1.5\deps\uv\include;C:\Users\tarek\.electron-gyp\7.1.5\deps\zlib;C:\Users\tarek\.electron-gyp\7.1.5\deps\v8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NODE_GYP_MODULE_NAME=scanner;USING_UV_SHARED=1;USING_V8_SHARED=1;V8_DEPRECATION_WARNINGS=1;V8_DEPRECATION_WARNINGS;V8_IMMINENT_DEPRECATION_WARNINGS;WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_HAS_EXCEPTIONS=0;OPENSSL_NO_PINSHARED;OPENSSL_THREADS;BUILDING_NODE_EXTENSION;HOST_BINARY=&quot;node.exe&quot;;%(PreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
@@ -132,7 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\scanner.cc"/>
-    <ClCompile Include="E:\Scanner\node_modules\node-gyp\src\win_delay_load_hook.cc"/>
+    <ClCompile Include="E:\activeProjects\Scanner\node_modules\node-gyp\src\win_delay_load_hook.cc"/>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets"/>
   <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets"/>

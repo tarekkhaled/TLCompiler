@@ -155,7 +155,7 @@ void TinyLanguageAnalysis(string longText){
             }
 
             else if(in == "*"){
-                tokens.push_back(make_pair(in, "Multiplication"));
+                tokens.push_back(make_pair(in, "MULT"));
                 i++;
             }
             else if(in == "/"){

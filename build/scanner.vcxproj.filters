@@ -7,16 +7,19 @@
     <Filter Include="E:">
       <UniqueIdentifier>{5B7DBE12-B2C6-AFA4-ACF8-17495B3FA076}</UniqueIdentifier>
     </Filter>
-    <Filter Include="E:\Scanner">
+    <Filter Include="E:\activeProjects">
+      <UniqueIdentifier>{38B69BD7-3E44-5C38-2416-F88E28CD781E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="E:\activeProjects\Scanner">
       <UniqueIdentifier>{AAED4124-118D-CA2C-F64D-B812E6E72321}</UniqueIdentifier>
     </Filter>
-    <Filter Include="E:\Scanner\node_modules">
+    <Filter Include="E:\activeProjects\Scanner\node_modules">
       <UniqueIdentifier>{56DF7A98-063D-FB9D-485C-089023B4C16A}</UniqueIdentifier>
     </Filter>
-    <Filter Include="E:\Scanner\node_modules\node-gyp">
+    <Filter Include="E:\activeProjects\Scanner\node_modules\node-gyp">
       <UniqueIdentifier>{77348C0E-2034-7791-74D5-63C077DF5A3B}</UniqueIdentifier>
     </Filter>
-    <Filter Include="E:\Scanner\node_modules\node-gyp\src">
+    <Filter Include="E:\activeProjects\Scanner\node_modules\node-gyp\src">
       <UniqueIdentifier>{8CDEE807-BC53-E450-C8B8-4DEBB66742D4}</UniqueIdentifier>
     </Filter>
     <Filter Include="..">
@@ -27,8 +30,8 @@
     <ClCompile Include="..\scanner.cc">
       <Filter>..</Filter>
     </ClCompile>
-    <ClCompile Include="E:\Scanner\node_modules\node-gyp\src\win_delay_load_hook.cc">
-      <Filter>E:\Scanner\node_modules\node-gyp\src</Filter>
+    <ClCompile Include="E:\activeProjects\Scanner\node_modules\node-gyp\src\win_delay_load_hook.cc">
+      <Filter>E:\activeProjects\Scanner\node_modules\node-gyp\src</Filter>
     </ClCompile>
     <None Include="..\binding.gyp">
       <Filter>..</Filter>

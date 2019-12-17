@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "scanner", "scanner.vcxproj", "{94D8C91E-5F43-F49A-F7A6-5459A4665006}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "scanner", "scanner.vcxproj", "{707D36B1-7BB6-0A6C-B88E-9B2F7B8FB7AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,10 +8,10 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{94D8C91E-5F43-F49A-F7A6-5459A4665006}.Debug|x64.ActiveCfg = Debug|x64
-		{94D8C91E-5F43-F49A-F7A6-5459A4665006}.Debug|x64.Build.0 = Debug|x64
-		{94D8C91E-5F43-F49A-F7A6-5459A4665006}.Release|x64.ActiveCfg = Release|x64
-		{94D8C91E-5F43-F49A-F7A6-5459A4665006}.Release|x64.Build.0 = Release|x64
+		{707D36B1-7BB6-0A6C-B88E-9B2F7B8FB7AE}.Debug|x64.ActiveCfg = Debug|x64
+		{707D36B1-7BB6-0A6C-B88E-9B2F7B8FB7AE}.Debug|x64.Build.0 = Debug|x64
+		{707D36B1-7BB6-0A6C-B88E-9B2F7B8FB7AE}.Release|x64.ActiveCfg = Release|x64
+		{707D36B1-7BB6-0A6C-B88E-9B2F7B8FB7AE}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
