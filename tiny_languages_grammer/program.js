@@ -192,6 +192,9 @@ const stmt_seq = (tokens,_) => {
        const result3 = statment(tokens,_);
        return result1 && result2 && result3;
     }
+    if(tokens[_.counter] && /IF|READ|REPEAT|WRITE|ASSIGN/.test(tokens[_.counter].tokenType)) {
+        return false
+    }
         return result1;
     }
 
