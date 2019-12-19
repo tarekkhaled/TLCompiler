@@ -25,22 +25,32 @@ checkboxCircle.forEach(circle => circle.addEventListener('click',toggle_checkbox
 // Scanner JOB
 scanFileButton.addEventListener('click', e  => {
   let currentContent = sourceCode.value;
-  if (currentContent.includes("{") && !currentContent.includes("}")) {
-    currentContent = currentContent + "}"
+  if(!currentContent) 
+    alert('Enter code or  Choose file first !!')
+  else {
+    if (currentContent.includes("{") && !currentContent.includes("}")) {
+      currentContent = currentContent + "}"
+    }
+    scanner_job(currentContent);
   }
-  scanner_job(currentContent);
 });
 
 // Parser JOB
 parserFileButton.addEventListener('click',e => {
   let currentContent = sourceCode.value;
-  parser_job(currentContent);
+  if(!currentContent) 
+    alert('Enter code or Choose file first !!')
+  else
+    parser_job(currentContent);
 })
 
 // Full JOB
 fullFileButton.addEventListener('click',e => {
   let currentContent = sourceCode.value;
-  full_job(currentContent);
+  if(!currentContent)
+    alert('Enter code or Choose file first !!');
+  else
+    full_job(currentContent);
 })
 
 openFileButton.addEventListener('click',()=>{
