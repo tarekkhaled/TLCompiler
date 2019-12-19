@@ -40,8 +40,12 @@ parserFileButton.addEventListener('click',e => {
   let currentContent = sourceCode.value;
   if(!currentContent) 
     alert('Enter code or Choose file first !!')
-  else
-    parser_job(currentContent);
+  else {
+    const tokens = parser_job(currentContent);
+    document.querySelector('.parser-tree').addEventListener('click',()=>{
+      ipcRenderer.send('openNewWindow',tokens)
+    })
+  }
 })
 
 // Full JOB
@@ -49,13 +53,19 @@ fullFileButton.addEventListener('click',e => {
   let currentContent = sourceCode.value;
   if(!currentContent)
     alert('Enter code or Choose file first !!');
-  else
-    full_job(currentContent);
+  else {
+    const tokens = full_job(currentContent);
+    document.querySelector('.parser-tree').addEventListener('click',()=>{
+      ipcRenderer.send('openNewWindow',tokens)
+    })
+  }
 })
 
 openFileButton.addEventListener('click',()=>{
     ipcRenderer.send('get-file-from-user')
 })
+
+
 
 
 /** when fire will be selected this function will be executed  */
@@ -75,10 +85,16 @@ const what_should_i_show_with_that_file = (active,content) => {
       scanner_job(content);
       break;
     case 'inner-parser':
-      parser_job(content);
+      const tokens = parser_job(content);
+      document.querySelector('.parser-tree').addEventListener('click',()=>{
+        ipcRenderer.send('openNewWindow',tokens)
+      })
       break;
     case 'inner-full':
-      full_job(content);
+       const full_tokens = full_job(content);
+       document.querySelector('.parser-tree').addEventListener('click',()=>{
+          ipcRenderer.send('openNewWindow',full_tokens)
+      })
       break;
     default:
       break;

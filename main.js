@@ -51,3 +51,21 @@ const openFile = file => {
 }
 
 
+ipcMain.on('openNewWindow',(event,tokens) => {
+    const drawingWindow = new BrowserWindow( {
+        show : true,
+        webPreferences : {
+            nodeIntegration : true
+        },
+        width : 955
+    })
+    /* load html in the browser window */
+    drawingWindow.loadFile(`./drawing.html`);
+    /*  just one time do this listener*/
+    drawingWindow.once('ready-to-show' , () => {
+        drawingWindow.show() // make {show :true}
+    });
+    drawingWindow.webContents.on('did-finish-load',() => {
+        drawingWindow.webContents.send('tokens-ready',tokens)
+    })
+})

@@ -16,7 +16,6 @@ const scanner_job = sourceCode => {
   if(c_.printString(sourceCode)) {
       const textFromFile = fs.readFileSync('./example.txt').toString().split(',');
       let counter = 0 ; 
-      console.log(textFromFile);
       while(counter < textFromFile.length) {
         if(textFromFile[counter+1] && !textFromFile[counter+1].includes('\n'))
         {
@@ -35,7 +34,7 @@ const scanner_job = sourceCode => {
         }
         counter += 2;
       }
-      console.table(tokensArray);
+      // console.table(tokensArray);
   }
   
 

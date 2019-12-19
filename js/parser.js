@@ -53,8 +53,10 @@ const parser_job = (sourceCode,tokesnOb = '',) => {
         <div class="card-info">
             <img src=${acceptance ? './img/true.png' : './img/false.png'} />
             <p>${acceptance ? 'This code is accepted' : 'This code is not accepted'}</p>
+            ${acceptance ? '<button class="parser-tree">Parser Tree</button>' : null}
         </div>
     </div>`
+    return tokensArray;
 }
 
 module.exports = parser_job;

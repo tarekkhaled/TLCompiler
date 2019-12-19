@@ -8,6 +8,7 @@ let _ = {
 const full_job = sourceCode => {
     const tokensArray = scanner_job(sourceCode).filter(token => token.tokenType !== 'COMMENT')
     parser_job(sourceCode,tokensArray);
+    return tokensArray;
 }
 
 

@@ -49,6 +49,7 @@ button {
   color: #353535;
   cursor: pointer;
   font-family: 'Varela Round', sans-serif;
+  transition: all 0.7s ease-in-out ;
 }
 
 button:disabled {
