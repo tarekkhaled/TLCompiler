@@ -42,8 +42,7 @@ const parser_job = (sourceCode,tokesnOb = '',) => {
     place_to_render_on.innerHTML = ``;
     let  tokensArray;
     if(!tokesnOb) {
-        tokensArray = prepare_tokensArray_for_parsing_it(sourceCode);
-        console.log(tokensArray)
+        tokensArray = prepare_tokensArray_for_parsing_it(sourceCode).filter(token => token.tokenType !== "COMMENT")
     }
     else 
         tokensArray = tokesnOb;
